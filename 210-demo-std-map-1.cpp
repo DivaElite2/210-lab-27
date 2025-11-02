@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <tuple>
 using namespace std;
 
 int main() {
@@ -14,10 +15,10 @@ int main() {
     villagers["Marshal"]= make_tuple(2, "Cat", "purtastic!");
 
     // accessing  data
-    cout << "Villagers and their favorite colors (range-based for loop):" << endl;
+    cout << "Villagers details:" << endl;
     for (auto& pair : villagers) {
         auto[friendship, species, phrase] = pair.second;
-        cout << pair.first << ": Level" << friendship << " " << species << "who says: " <<phrase<< " " <<endl;
+        cout << pair.first << " : Level" << friendship << " " << species <<phrase << " " <<endl;
         
     }
 
@@ -25,7 +26,7 @@ int main() {
     cout << "\nVillagers detail:" << endl;
     for (auto it = villagers.begin(); it != villagers.end(); it++ ); 
          auto[friendship, species, phrase] = it->second;
-        cout get<0> << it->first << ":Level: "<< friendship <<" " <<species <<"says" <<phrase <<" " <<endl;
+        cout<< it->first << ":Level: "<< friendship <<" " <<species <<"says" <<phrase <<" " <<endl;
     }
 
      cout << endl;
