@@ -18,8 +18,7 @@ int main() {
     cout << "Villagers details:" << endl;
     for (auto& pair : villagers) {
         auto[friendship, species, phrase] = pair.second;
-        cout <<pair.first // somethings wrong here - I have a loop
-            << get<1>(villigers)
+        cout <<pair.first << get<0>(pair.second) << ","<<get<1>(pair.second) <<","<<get<1>(pair.second) <<"]" <<// somethings wrong here - I have a loop<< 
         endl;
         
     }
