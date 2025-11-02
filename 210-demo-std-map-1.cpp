@@ -18,7 +18,7 @@ int main() {
     cout << "Villagers details:" << endl;
     for (auto& pair : villagers) {
         auto[friendship, species, phrase] = pair.second;
-        cout << pair.first << " : Level" << friendship << " " << species <<phrase << " " <<endl;
+        cout << pair.first << " : Level" << friendship << " <<endl;
         
     }
 
@@ -32,12 +32,12 @@ int main() {
      cout << endl;
 
     // delete an element
-    villagerColors.erase("Raymond");
+    villagers.erase("Raymond");
 
     // search for an element using .find() to avoid errors
     string searchKey = "Audie";
-    auto it = villagerColors.find(searchKey);
-    if (it != villagerColors.end()) {  // the iterator points to beyond the end of the map
+    auto it = villagers.find(searchKey);
+    if (it != villagers.end()) {  // the iterator points to beyond the end of the map
                                        // if searchKey is not found
         cout << "\nFound " << searchKey << "'s favorite colors: ";
         for (auto color : it->second)  // range loop to traverse the value/vector
@@ -47,9 +47,9 @@ int main() {
         cout << endl << searchKey << " not found." << endl;
 
     // report size, clear, report size again to confirm map operations
-    cout << "\nSize before clear: " << villagerColors.size() << endl;
-    villagerColors.clear();
-    cout << "Size after clear: " << villagerColors.size() << endl;
+    cout << "\nSize before clear: " << villagers.size() << endl;
+    villagers.clear();
+    cout << "Size after clear: " << villagers.size() << endl;
 
     return 0;
 }
