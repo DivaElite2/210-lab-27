@@ -1,3 +1,6 @@
+//Lateefah Camacho
+//210-Lab-27
+
 #include <iostream>
 #include <map>
 #include <vector>
@@ -14,43 +17,48 @@ int main() {
     villagers["Raymond"] = make_tuple(1,"Parakeet ", "chirp");
     villagers["Marshal"]= make_tuple(2, "Cat", "purtastic!");
 
-    // accessing  data
-    cout << "Villagers details:" << endl;
+// accessing data
     for (auto& pair : villagers) {
         auto[friendship, species, phrase] = pair.second;
-        cout <<pair.first << get<0>(pair.second) << ","<<get<1>(pair.second) <<","<<get<1>(pair.second) <<"]" <<// somethings wrong here - I have a loop<< 
+        std::cout <<pair.first <<" [ "<< get<0>(pair.second) << ","<<get<1>(pair.second) <<","<<get<2>(pair.second) <<"]" <<
         endl;
         
     }
 
     // access the map using iterators
-    cout << "\nVillagers detail:" << endl;
-    for (auto it = villagers.begin(); it != villagers.end(); it++ ); 
+    std::cout << "\nVillagers detail:" << endl;
+    for (auto it = villagers.begin(); it != villagers.end(); it++ ) {
          auto[friendship, species, phrase] = it->second;
-        cout<< it->first << ":Level: "<< friendship <<" " <<species <<"says" <<phrase <<" " <<endl;
+       std::cout<< it->first << ":Level: "<< friendship <<" " << species <<" says" <<phrase <<" " <<endl;
     }
 
-     cout << endl;
+     //std::cout << endl;
 
     // delete an element
     villagers.erase("Raymond");
 
-    // search for an element using .find() to avoid errors
-    string searchKey = "Audie";
-    auto it = villagers.find(searchKey);
-    if (it != villagers.end()) {  // the iterator points to beyond the end of the map
-                                       // if searchKey is not found
-        cout << "\nFound " << searchKey << "'s favorite colors: ";
-        for (auto color : it->second)  // range loop to traverse the value/vector
-            cout << color << " ";
-        cout << endl;
-    } else
-        cout << endl << searchKey << " not found." << endl;
+    
+    string searchName;
+     cout << "Enter villager name to search: ";
+     cin >> searchName;
+
+      auto it = villagers.find(searchName); // search for an element using .find() to avoid errors
+
+    if (it != villagers.end()) {
+    auto [f, s, p] = it->second;
+    cout << "Found: " << it->first << " [Level " << f << ", " << s << ", '" << p << "']" << endl;
+    
+   } else {
+    cout << searchName << " not found." << endl;
+}
 
     // report size, clear, report size again to confirm map operations
-    cout << "\nSize before clear: " << villagers.size() << endl;
+   cout << "\nSize before clear: " << villagers.size() << endl;
     villagers.clear();
     cout << "Size after clear: " << villagers.size() << endl;
 
     return 0;
+
 }
+
+
